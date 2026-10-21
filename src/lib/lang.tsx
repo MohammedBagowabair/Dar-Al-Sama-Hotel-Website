@@ -23,6 +23,8 @@ export function LangProvider({ children }: { children: ReactNode }) {
     d.lang = lang;
     d.dir = lang === "ar" ? "rtl" : "ltr";
     document.title = meta.title[lang];
+    const can = document.querySelector('link[rel="canonical"]');
+    if (can) { const c = new URL(can.getAttribute("href")!); if (lang === "en") c.searchParams.set("lang", "en"); else c.searchParams.delete("lang"); can.setAttribute("href", c.toString()); }
     document.querySelector('meta[name="description"]')?.setAttribute("content", meta.description[lang]);
     try { localStorage.setItem(STORAGE_KEY, lang); } catch { /* private mode */ }
     const url = new URL(location.href);

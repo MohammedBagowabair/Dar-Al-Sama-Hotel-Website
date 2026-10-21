@@ -85,7 +85,7 @@ export function Reviews() {
         <div ref={rail} onScroll={() => track(rail.current, setActive)} className="rail scroll-px-6 gap-3 px-6 lg:grid lg:grid-cols-3 lg:gap-6 lg:px-0">
           {testimonials.items.map((t) => (
             <figure key={t.name} className="flex w-[86%] flex-col rounded-[1.6rem] bg-cream p-6 ring-1 ring-espresso/6 lg:w-auto">
-              <div className="flex gap-0.5 text-saffron" aria-label="5/5">
+              <div className="flex gap-0.5 text-saffron" role="img" aria-label="5/5">
                 {Array.from({ length: 5 }, (_, k) => <Icon key={k} name="star" className="size-4 fill-current" />)}
               </div>
               <blockquote className="font-display mt-4 flex-1 text-[1.35rem] leading-snug text-espresso">“<T v={t.quote} />”</blockquote>
