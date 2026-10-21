@@ -11,7 +11,7 @@ export function Hero({ onBook }: { onBook: () => void }) {
       <div className="mx-auto grid max-w-7xl gap-7 px-6 pt-[calc(4.5rem+env(safe-area-inset-top))] pb-10 lg:grid-cols-[1fr_minmax(0,36rem)] lg:items-center lg:gap-20 lg:px-10 lg:pt-32 lg:pb-24">
         <div className="relative mx-auto w-full max-w-[26rem] lg:order-2 lg:max-w-none">
           <div aria-hidden className="absolute -inset-x-2 -top-2 bottom-[-0.5rem] rounded-t-full border border-brass/45" />
-          <div className="relative h-[min(46svh,27rem)] overflow-hidden rounded-t-full bg-sandstone shadow-[0_40px_70px_-45px_rgba(43,30,22,0.55)] lg:h-[min(76vh,44rem)]">
+          <div className="relative h-[min(40svh,24rem)] overflow-hidden rounded-t-full bg-sandstone shadow-[0_40px_70px_-45px_rgba(43,30,22,0.55)] lg:h-[min(76vh,44rem)]">
             <picture>
               <source type="image/avif" srcSet={archAvif} sizes={archSizes} />
               <img
@@ -31,7 +31,7 @@ export function Hero({ onBook }: { onBook: () => void }) {
         </div>
 
         <div className="text-center lg:order-1 lg:text-start">
-          <Qamariya className="glass-glow mx-auto mb-3 w-16 lg:mx-0 lg:mb-5 lg:w-24" />
+          <Qamariya className="glass-glow mx-auto mb-2 w-14 lg:mx-0 lg:mb-5 lg:w-24" />
           <p className="text-xs font-medium tracking-[0.22em] text-brass-deep uppercase">
             <T v={heroCopy.eyebrow} />
           </p>

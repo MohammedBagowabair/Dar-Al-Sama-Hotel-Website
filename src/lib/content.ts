@@ -338,7 +338,7 @@ export const ui = {
 
 export const heroCopy = {
   eyebrow: { en: "Old Sana'a · Since 1890", ar: "صنعاء القديمة · منذ ١٨٩٠" },
-  title: { en: "A house of light above Old Sana'a", ar: "بيتٌ من نورٍ فوق صنعاء القديمة" },
+  title: { en: "A house of light above Old Sana'a", ar: "بيت من نور فوق صنعاء القديمة" },
   line: {
     en: "Forty-eight rooms in a restored tower house, lit through qamariya glass.",
     ar: "ثمانٍ وأربعون غرفة في بيتٍ صنعاني مُرمَّم، يضيئها زجاج القمريات.",
