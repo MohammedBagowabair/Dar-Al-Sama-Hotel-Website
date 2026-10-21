@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #f7f1e8;
+  --color-limestone: #efe5d6;
+  --color-sandstone: #e4d6c1;
+  --color-espresso: #2b1e16;
+  --color-cocoa: #5b4636;
+  --color-brass: #b08a4a;
+  --color-brass-deep: #84652f;
+  --color-teal: #1f5c5b;
+  --color-ruby: #8e2b3a;
+  --color-saffron: #d99a2b;
+  --color-wa: #1f8f4e;
+  --font-body: "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Bilingual text (components/T.tsx) */
+html[lang="ar"] .t-en,
+html:not([lang="ar"]) .t-ar {
+  display: none;
+}
+
+html {
+  background: var(--color-cream);
+  color: var(--color-espresso);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  font-family: var(--font-body);
+  overflow-x: clip;
+}
+.font-display {
+  font-family: "AmiriHero", "Amiri", Georgia, serif;
+  font-weight: 400;
+}
+html:not([lang="ar"]) .font-display {
+  font-family: "CormorantHero", "Cormorant Garamond", Georgia, serif;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+}
+
+/* Swipe rails */
+.rail {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.rail::-webkit-scrollbar {
+  display: none;
+}
+.rail > * {
+  scroll-snap-align: center;
+  flex-shrink: 0;
+}
+
+/* Haptic-feeling press */
+.press {
+  transition: transform 0.18s var(--ease-out-soft), background-color 0.2s, box-shadow 0.2s;
+}
+.press:active {
+  transform: scale(0.96);
+}
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.8s var(--ease-out-soft), transform 0.8s var(--ease-out-soft);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+html.no-js .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* Qamariya glass glow */
+@keyframes glow {
+  from { opacity: 0.75; }
+  to { opacity: 1; }
+}
+.glass-glow {
+  animation: glow 5s ease-in-out infinite alternate;
+}
+
+/* Bottom sheets */
+.sheet-backdrop {
+  transition: opacity 0.3s ease;
+}
+.sheet-panel {
+  transition: transform 0.42s var(--ease-out-soft);
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] .faq-icon {
+  transform: rotate(45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+body[data-locked] .wa-bar {
+  visibility: hidden;
+}
