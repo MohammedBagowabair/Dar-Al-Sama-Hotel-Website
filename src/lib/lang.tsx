@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
+import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import { meta, type Lang } from "./content";
 
 export const STORAGE_KEY = "dar-al-sama-lang";
@@ -18,7 +18,11 @@ export function LangProvider({ children }: { children: ReactNode }) {
     }
     if (initial === "en" || initial === "ar") setLang(initial);
   }, []);
+  // The boot script already set <html lang/dir>; skip the first pass so the
+  // server default ("ar") never flips an English page to RTL for a frame.
+  const first = useRef(true);
   useEffect(() => {
+    if (first.current) { first.current = false; return; }
     const d = document.documentElement;
     d.lang = lang;
     d.dir = lang === "ar" ? "rtl" : "ltr";
